@@ -35,3 +35,11 @@ string[] GetNewStr(string[] str)
         }
     return newstr;
 }
+Console.Clear();
+string[] str = { "Если", "б", "я", "был", "султан", ",", "я", "б", "имел", "трех", "жен", "." };
+Console.WriteLine("Базовый массив строк: ");
+PrintArray(str);
+Console.WriteLine();
+string[] newstr = GetNewStr(str);
+Console.WriteLine("Новый массив строк (из элементов базового массива, каждый из которых длинной НЕ БОЛЕЕ трех символов): ");
+PrintArray(newstr);
