@@ -13,3 +13,25 @@ void PrintArray(string[] array)
     Console.Write($"{element} ");
 Console.WriteLine();    
 }
+
+int CountUniqueElements(string[] str)
+{
+    int count = 0;
+    for (int i = 0; i < str.Length; i++)
+        if (str[i].Length <= 3)
+            count++;
+    return count;
+}
+
+string[] GetNewStr(string[] str)
+{
+    string[] newstr = new string[CountUniqueElements(str)];
+    int index = 0;
+    for (int i = 0; i < str.Length; i++)
+        if (str[i].Length<=3)
+        {
+            newstr[index] = str[i];
+            index++;
+        }
+    return newstr;
+}
