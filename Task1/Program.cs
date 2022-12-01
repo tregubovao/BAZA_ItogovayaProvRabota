@@ -9,37 +9,38 @@
 
 void PrintArray(string[] array)
 {
-    foreach(string element in array)
-    Console.Write($"{element} ");
-Console.WriteLine();    
+    foreach (string element in array)
+        Console.Write($"{element} ");
+    Console.WriteLine();
 }
 
-int CountUniqueElements(string[] str)
+int CountUniqueElements(string[] str, int limitLength)
 {
     int count = 0;
     for (int i = 0; i < str.Length; i++)
-        if (str[i].Length <= 3)
+        if (str[i].Length <= limitLength)
             count++;
     return count;
 }
 
-string[] GetNewStr(string[] str)
+string[] GetNewStr(string[] str, int limitLength)
 {
-    string[] newstr = new string[CountUniqueElements(str)];
+    string[] newStr = new string[CountUniqueElements(str, limitLength)];
     int index = 0;
     for (int i = 0; i < str.Length; i++)
-        if (str[i].Length<=3)
+        if (str[i].Length <= limitLength)
         {
-            newstr[index] = str[i];
+            newStr[index] = str[i];
             index++;
         }
-    return newstr;
+    return newStr;
 }
 Console.Clear();
 string[] str = { "Если", "б", "я", "был", "султан", ",", "я", "б", "имел", "трех", "жен", "." };
+int limitLength = 3;
 Console.WriteLine("Базовый массив строк: ");
 PrintArray(str);
 Console.WriteLine();
-string[] newstr = GetNewStr(str);
+string[] newStr = GetNewStr(str, limitLength);
 Console.WriteLine("Новый массив строк (из элементов базового массива, каждый из которых длинной НЕ БОЛЕЕ трех символов): ");
-PrintArray(newstr);
+PrintArray(newStr);
